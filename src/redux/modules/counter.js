@@ -1,5 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk } from "@reduxjs/toolkit";
 
+//2개의  input
+//1. 이름 : 의미없음
+//2. 함수
+//thunk 중간에 뭘 실행시키기 위해서
+export const __addNumber = createAsyncThunk(
+  "ADD_NUMBER_WAIT",
+  //여기도 인자 두개 payload, 내장 객체
+  (payload, thunkAPI) => {
+    //수행동작 입력
+    setTimeout(() => {
+      thunkAPI.dispatch(payload);
+    }, 3000);
+  }
+);
 //Action value
 // const ADD_NUMBER = "ADD_NUMBER";
 // const MINUS_NUMBER = "MINUS_NUMBER";
